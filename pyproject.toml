@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dagdgp"
+version = "0.1.0"
+description = "Deep Gaussian processes on directed acyclic graphs with DAG-VI and DAG-SVI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "GPy>=1.13.2",
+  "gpytorch>=1.15.2",
+  "matplotlib>=3.10.8",
+  "networkx",
+  "numpy>=1.26.4,<2",
+  "pandas>=2.3.3",
+  "scipy",
+  "torch>=2.0",
+]
+
+[project.optional-dependencies]
+figures = [
+  "pyvista>=0.46",
+  "pillow",
+  "threadpoolctl",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dagdgp*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+
+[tool.ruff.lint]
+extend-select = ["I"]  # import sorting (isort)
+select = ["E", "F", "B", "I", "UP"]
+ignore = ["E501"]      # ignore line-length if ruff-format handles it
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

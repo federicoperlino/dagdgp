@@ -1,0 +1,7 @@
+results/
+smoke_results/
+tables/
+figures/
+__pycache__/
+.pytest_cache/
+private/
